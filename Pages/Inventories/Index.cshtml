@@ -1,0 +1,84 @@
+@page
+@model WebApplication1.Pages.Inventories.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].on_hand_qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].sale_price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].allocated_qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].total_qty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Inventory) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.on_hand_qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sale_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allocated_qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_qty)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
